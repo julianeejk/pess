@@ -8,7 +8,7 @@
 if(isset($_SESSION)==false)
 	session_start();
 if(!isset($_SESSION['username'])) {
-header('Location: signin.php');
+	header('Location: signin.php');
 }
 	?>
 <script>
