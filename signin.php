@@ -41,7 +41,6 @@ function validateLogin() {
 		{
 			session_start();
 		}
-	
 	if(isset($_SESSION['username']))
 		{
 			header("location: signin2.php");
