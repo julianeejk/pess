@@ -1,0 +1,9 @@
+cd c:\xampp\htdocs\pess_julian>
+git init
+git add .
+git commit -m "first commit"
+
+git remote add origin https://github.com/yourname/pess.git
+git push -u origin master
+git tag -a 1.0.0 -m "release: First version"
+git push --tags
