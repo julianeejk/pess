@@ -5,6 +5,7 @@
 <link href="https://fonts.googleapis.com/css?family=Crete+Round|Exo" rel="stylesheet">
 <title>Sign In</title>
 <script>
+// Make sure fields are not empty 
 function validateLogin() {
   var user = document.forms["signin"]["username"].value;
   var pass = document.forms["signin"]["password"].value;
@@ -37,10 +38,12 @@ function validateLogin() {
 		}
 	</style>	
 <?php include "header.php";
+	// Check if session exists
 	if(isset($_SESSION) == false)
 		{
 			session_start();
 		}
+	// If correct session already exists
 	if(isset($_SESSION['username']))
 		{
 			header("location: signin2.php");
@@ -64,12 +67,13 @@ function validateLogin() {
 		$result = mysql_query($sql,$con);
 		
 		$num = mysql_num_rows($result);
-	
+	    // If user found in database, grant access to all pages
 		if($num == 1)
 			{
 				$_SESSION['username'] = $_POST['username'];
 				header("location: logcall.php");
 			}
+		// If user not found, bring to signinerror.php
 		else
 			{
 				header("location: signinerror.php");

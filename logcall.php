@@ -4,6 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Crete+Round|Exo" rel="stylesheet">
 <title>Logcall</title>
 <script>
+	// Logcall Form Validation //
 function validateForm() {
   var callerName = document.forms["frmLogCall"]["callerName"].value;
   var phoneNumber = document.forms["frmLogCall"]["phoneNumber"].value;
@@ -39,7 +40,7 @@ function validateForm() {
 		}
 	</style>
 <?php include "header.php";
-	
+	// Make sure user is logged in to access
 if(isset($_SESSION)==false)
 	session_start();
 if(!isset($_SESSION['username'])) {
@@ -70,8 +71,8 @@ if(isset($_POST['submit']))
 </head>
 
 <body>
-
 <?php
+// Dropdown bar for IncidentType, get data from database 
 $con = mysql_connect("localhost","julianee","password");
 if(!$con)
 	{
@@ -92,7 +93,7 @@ while($row = mysql_fetch_array($result))
 
 
 <br>
-
+<!-- Logcall Form -->
 <form name="frmLogCall" onsubmit="return validateForm()" method="post" action="dispatch.php" >
   <fieldset>
     <legend align="center">Log Call</legend>

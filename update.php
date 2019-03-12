@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <title>Update</title>
 <?php include "header.php";
+// Make sure user is logged in to access
 if(isset($_SESSION)==false)
 	session_start();
 if(!isset($_SESSION['username'])) {
@@ -143,6 +144,7 @@ while($row = mysql_fetch_array($result))
 </form>
 <?php }?>
 <?php 
+	// Update patrolcar status
 	if(isset($_POST["btnUpdate"])){
 		$con = mysql_connect("localhost", "julianee", "password");
 		

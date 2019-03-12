@@ -1,4 +1,5 @@
 <?php 
+// Make sure user submitted Logcall to access
 	if(!isset($_POST['submit']) && !isset($_POST['btnCancel']))
 		header("Location: logcall.php");
 	?>
@@ -9,6 +10,7 @@
 <title>Dispatched</title>
 <?php include "header.php";
 	
+	// Insert input to database
 	if(isset($_POST["btnSubmit"]))
 		{
 			$con = mysql_connect("localhost", "julianee", "password");
